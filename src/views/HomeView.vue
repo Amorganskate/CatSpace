@@ -1,5 +1,5 @@
 <template>
-  <main><CatFeed /></main>
+  <main class="bg-white"><CatFeed /></main>
 </template>
 
 <script setup>
