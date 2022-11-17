@@ -66,7 +66,8 @@
 
 <script setup >
 import { ref, onMounted } from "vue";
-import axios from "axios";
+import catfeed from "/dummy_data/cat_feed.json";
+
 const username = ref('');
 const imagePath = ref('');
 const caption = ref('');
@@ -89,7 +90,6 @@ async function  AddToJsonFile() {
   console.log(json);
 }
 onMounted(async () => {
-  var catfeed = await axios.get("/dummy_data/cat_feed.json");
 
   username_list.value = catfeed.data.map((x) => ({
     username: x.userName,
