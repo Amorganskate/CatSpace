@@ -15,4 +15,16 @@
   .username-text {
     @apply font-chubbo text-2xl leading-9;
   }
+
+  .profile-username-text {
+    @apply font-chubbo text-xl leading-8;
+  }
+
+  .profile-number {
+    @apply font-chubbo text-[2rem] leading-[3rem];
+  }
+
+  .profile-number-description {
+    @apply text-sm leading-[18px];
+  }
 }
