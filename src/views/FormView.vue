@@ -17,7 +17,7 @@
         >
           <option
             :key="option.userId"
-            v-for="option in usernames"
+            v-for="option in username_list"
             :value="option"
           >
             {{ option.username }}
@@ -113,7 +113,8 @@ function read_from_local_json() {
 onMounted(async () => {
   save_to_local_json(catfeed);
 
-  username_list.value = catfeed.map((x) => ({
+  var items = read_from_local_json();
+  username_list.value = items.map((x) => ({
     username: x.userName,
     userId: x.userAccountID,
     profileImage: x.profileImage,
