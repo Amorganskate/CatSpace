@@ -5,13 +5,15 @@
     <div class="p-6">
       <div class="flex justify-between content-center">
         <div class="flex">
-          <div class="bg-black w-9 h-9 rounded-full mr-1.5"></div>
+          <img class="w-9 h-9 rounded-full mr-1.5" :src="avatar" />
           <span class="username-text">{{ username }}</span>
         </div>
         <img src="/icons/icon-more-horizontal.svg" />
       </div>
       <div class="flex justify-center">
-        <div class="mt-[20px] border-[3px] rounded border-black inline-block">
+        <div
+          class="mt-[20px] border-[3px] rounded-md border-black inline-block"
+        >
           <img class="object-cover" :src="image" />
         </div>
       </div>
