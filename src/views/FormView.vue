@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-xs">
+  <div class="flex justify-center">
     <form id="app" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h1 class="flex justify-center font-bold mb-4">Create A Post Feed</h1>
 
@@ -54,8 +54,7 @@
       <div class="flex justify-center">
         <button
           type="button"
-          style="background-color: #ffc700"
-          class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-yellow text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           v-on:click="AddToJsonFile()"
         >
           Add To Cat Feed
