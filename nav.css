@@ -21,7 +21,7 @@
   .top-nav,
   .bot-nav {
     width: calc(100% - 24px);
-    left: calc(50% -4px);
+    left: calc(50% - 4px);
   }
 }
 .top-nav {
