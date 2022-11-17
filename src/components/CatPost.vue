@@ -12,9 +12,9 @@
       </div>
       <div class="flex justify-center">
         <div
-          class="mt-[20px] border-[3px] rounded-md border-black inline-block"
+          class="mt-[20px] border-[3px] rounded-md border-black inline-block bg-black"
         >
-          <img class="object-cover" :src="image" />
+          <img class="rounded-md object-cover" :src="image" />
         </div>
       </div>
       <div class="flex justify-between items-center mt-[30px]">
