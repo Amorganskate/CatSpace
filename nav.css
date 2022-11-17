@@ -1,7 +1,7 @@
 .top-nav,
 .bot-nav {
   position: fixed;
-  max-width: 744px;
+  max-width: 768px;
   width: 100%;
   background: #FFC700;
   left: 50%;
@@ -16,6 +16,13 @@
   justify-content: unset;
   align-items: center;
   flex-direction: unset;
+}
+@media screen and (max-width: 768px) {
+  .top-nav,
+  .bot-nav {
+    width: calc(100% - 24px);
+    left: calc(50% -4px);
+  }
 }
 .top-nav {
   top: 0;

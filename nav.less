@@ -16,7 +16,7 @@
 
 .top-nav, .bot-nav{
     position: fixed;
-    max-width: 744px;
+    max-width: 768px;
     width: 100%;
     background: #FFC700;
     left: 50%;
@@ -28,6 +28,10 @@
     padding: 0 24px;
     z-index: 99;
     .flex(unset, center, unset);
+    @media screen and (max-width: 768px) {
+        width: ~"calc(100% - 24px)";
+        left: ~"calc(50% -4px)";
+    }
 }
 
 .top-nav{
