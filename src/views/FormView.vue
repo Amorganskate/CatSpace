@@ -18,7 +18,8 @@
           <option
             :key="option.userId"
             v-for="option in usernames"
-            :value="option.userId">
+            :value="option"
+          >
             {{ option.username }}
           </option>
         </select>
@@ -56,7 +57,6 @@
           style="background-color: #ffc700"
           class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           v-on:click="AddToJsonFile()"
-
         >
           Add To Cat Feed
         </button>
@@ -65,14 +65,14 @@
   </div>
 </template>
 
-<script setup >
+<script setup>
 import { ref, onMounted } from "vue";
-import catfeed from "../dummy_data/cat_feed.json"
-const username = ref('');
-const imagePath = ref('');
-const caption = ref('');
-let username_list = ref('')
-const selected = ref('')
+import catfeed from "../dummy_data/cat_feed.json";
+import common from "../common/common.js";
+const imagePath = ref("");
+const caption = ref("");
+let username_list = ref("");
+const selected = ref("");
 
 const usernames = ref(username_list);
 
@@ -106,20 +106,48 @@ const usernames = ref(username_list);
 //   }
 // ]`);
 
-async function  AddToJsonFile() {
-  var json = username_list;
+async function AddToJsonFile() {
+  var json = read_from_local_json();
   let isValid = CheckForm();
-
-
 
   if (!isValid) {
     alert("Please Fill Out Fields");
     return;
   }
 
-  console.log(json);
+  console.log(selected.value);
+
+  var new_record = {
+    userAccountID: selected.value.userId,
+    userName: selected.value.username,
+    caption: caption.value,
+    imagePath: imagePath.value,
+  };
+
+  json.push(new_record)
+
+  save_to_local_json(json)
+}
+
+function save_to_local_json(items) {
+  var items_json = JSON.stringify(items);
+
+  localStorage.setItem("cat_feed", items_json);
+}
+
+function read_from_local_json() {
+  var items_json = localStorage.getItem("cat_feed");
+  var items = JSON.parse(items_json);
+
+  if (!items) {
+    items = [];
+  }
+
+  return items;
 }
 onMounted(async () => {
+  save_to_local_json(catfeed);
+
   username_list.value = catfeed.map((x) => ({
     username: x.userName,
     userId: x.userAccountID,
@@ -127,8 +155,9 @@ onMounted(async () => {
   }));
 });
 
-function CheckForm(){
-  return username.value != "" && imagePath.value != "" && caption.value != "";
+
+
+function CheckForm() {
+  return selected.value != "" && imagePath.value != "" && caption.value != "";
 }
 </script>
-
