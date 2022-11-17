@@ -40,9 +40,12 @@
           placeholder="Caption"
         />
       </div>
-      <div class="flex items-center">
-        <button style="background-color: #ffc700;" class=" text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            Add To Cat Feed
+      <div class="flex justify-center">
+        <button
+          style="background-color: #ffc700"
+          class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        
+          Add To Cat Feed
         </button>
       </div>
     </form>
