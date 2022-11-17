@@ -15,7 +15,7 @@ var isLoginPage = computed(() => {
     <header></header>
     <main class="flex justify-center">
       <Nav v-if="!isLoginPage"></Nav>
-      <RouterView />
+      <RouterView :class="{ 'mt-[92px] mb-[120px]': !isLoginPage }" />
     </main>
   </div>
 </template>
