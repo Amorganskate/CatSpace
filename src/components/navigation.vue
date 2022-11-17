@@ -20,7 +20,7 @@
     </button>
   </div>
   <div class="bot-nav">
-    <button class="bot-nav__button">
+    <button @click="go_to_home()" class="bot-nav__button">
       <svg
         width="24"
         height="24"
@@ -91,8 +91,12 @@
   <div class="bot-gradient"></div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import {useRouter} from "vue-router"
+let router = useRouter();
+function go_to_home(){
+  router.push('/')
+}
 </script>
 
 <style scoped>
