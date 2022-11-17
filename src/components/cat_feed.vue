@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div v-if="items.length" class="bg-light-blue">
     <CatPost
+      v-for="(item, index) in items"
+      class="bg-white"
+      :class="{ 'mb-5': index + 1 !== items.length }"
       :key="item.userName + item.imagePath"
-      v-for="item in items"
       :username="item.userName"
       :avatar="item.userProfileImagePath"
       :image="item.imagePath"
