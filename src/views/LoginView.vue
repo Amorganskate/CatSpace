@@ -23,7 +23,7 @@
       </div>
       <button @click="login" class="login__button">log in</button>
       <a class="login__forgot" href="#"> forgot password? </a>
-      <a class="login__sign-up" href="#"> sign up</a>
+      <a class="login__sign-up" @click="signUp()"> sign up</a>
     </div>
   </div>
 </template>
@@ -54,6 +54,10 @@ function login() {
 
 function showMessage(text) {
   alert(text);
+}
+
+function signUp() {
+  router.push("/signup");
 }
 </script>
 <style scoped>
