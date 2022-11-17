@@ -28,24 +28,40 @@
       <span class="username-text text-black">edit profile</span>
     </button>
     <div class="mt-4 grid grid-cols-3 gap-4">
-      <img
+      <div
         v-for="(image, index) in images"
         :key="image + index"
-        :src="image"
-        class="border-[3px] border-black rounded-xl shadow-[0.5rem_0.5rem] shadow-black"
-      />
+        class="bg-black border-[3px] border-black rounded-xl shadow-[0.5rem_0.5rem] shadow-black flex items-center"
+      >
+        <img :src="image" class="rounded-xl object-cover h-full" />
+      </div>
     </div>
   </main>
 </template>
 <script setup>
-import { ref } from "vue";
-const images = ref([
-  "https://via.placeholder.com/200x200/white",
-  "https://via.placeholder.com/200x200/green",
-  "https://via.placeholder.com/200x200/red",
-  "https://via.placeholder.com/200x200/blue",
-  "https://via.placeholder.com/200x200/yellow",
-  "https://via.placeholder.com/200x200/black",
-  "https://via.placeholder.com/200x200/red",
-]);
+import { ref, computed, onMounted } from "vue";
+import { read_from_local_json } from "@/utils";
+// const images = ref([
+//   "https://via.placeholder.com/200x200/white",
+//   "https://via.placeholder.com/200x200/green",
+//   "https://via.placeholder.com/200x200/red",
+//   "https://via.placeholder.com/200x200/blue",
+//   "https://via.placeholder.com/200x200/yellow",
+//   "https://via.placeholder.com/200x200/black",
+//   "https://via.placeholder.com/200x200/red",
+// ]);
+const items = ref([]);
+
+onMounted(() => {
+  items.value = read_from_local_json();
+});
+
+const images = computed(() => {
+  if (!items.value?.length) return [];
+  return (
+    items.value
+      // .filter((i) => i.userAccountID === 1)
+      .map((i) => i.imagePath)
+  );
+});
 </script>
