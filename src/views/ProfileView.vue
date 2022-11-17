@@ -4,7 +4,7 @@
       <div class="flex-1">
         <img
           class="border-[3px] border-black w-[84px] h-[84px] rounded-full mr-1.5"
-          :src="'https://via.placeholder.com/200x200'"
+          :src="avatar ? avatar : 'https://via.placeholder.com/200x200'"
         />
       </div>
       <div class="flex-1 text-center">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <h1 class="profile-username-text mt-1">AlfredSkates</h1>
-    <p class="leading-5">biography asd asd wegerfg sdfth d sedw</p>
+    <p class="leading-5">the cat's meow...</p>
     <button
       class="rounded-2xl bg-black/[0.1] block w-full text-center py-2 mt-4"
     >
@@ -31,7 +31,7 @@
       <div
         v-for="(image, index) in images"
         :key="image + index"
-        class="bg-black border-[3px] border-black rounded-xl shadow-[0.5rem_0.5rem] shadow-black flex items-center"
+        class="bg-black border-[3px] border-black rounded-xl shadow-[0.5rem_0.5rem] shadow-black flex items-center aspect-square"
       >
         <img :src="image" class="rounded-xl object-cover h-full" />
       </div>
@@ -56,12 +56,20 @@ onMounted(() => {
   items.value = read_from_local_json();
 });
 
+const avatar = computed(() => {
+  if (!items.value?.length) return null;
+
+  const firstUserPost = items.value.find((i) => i.userAccountID === 1);
+  if (firstUserPost && firstUserPost.userProfileImagePath)
+    return firstUserPost.userProfileImagePath;
+
+  return null;
+});
+
 const images = computed(() => {
   if (!items.value?.length) return [];
-  return (
-    items.value
-      // .filter((i) => i.userAccountID === 1)
-      .map((i) => i.imagePath)
-  );
+  return items.value
+    .filter((i) => i.userAccountID === 1)
+    .map((i) => i.imagePath);
 });
 </script>
