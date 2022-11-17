@@ -111,6 +111,8 @@ function read_from_local_json() {
   return items;
 }
 onMounted(async () => {
+  save_to_local_json(catfeed);
+
   username_list.value = catfeed.map((x) => ({
     username: x.userName,
     userId: x.userAccountID,

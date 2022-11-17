@@ -12,7 +12,7 @@ app.use(router);
 app.mount("#app");
 function save_to_local_json(items) {
   var items_json = JSON.stringify(items);
-
+  console.log(catfeed)
   localStorage.setItem("cat_feed", items_json);
 }
 
