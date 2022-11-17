@@ -92,10 +92,10 @@
 </template>
 
 <script setup>
-import {useRouter} from "vue-router"
+import { useRouter } from "vue-router";
 let router = useRouter();
-function go_to_home(){
-  router.push('/')
+function go_to_home() {
+  router.push("/");
 }
 </script>
 

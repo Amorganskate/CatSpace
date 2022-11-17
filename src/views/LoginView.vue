@@ -59,7 +59,6 @@ function showMessage(text) {
 function signUp() {
   router.push("/signup");
 }
-
 </script>
 <style scoped>
 @import url("/login.css");

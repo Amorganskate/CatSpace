@@ -53,8 +53,8 @@ let auth = new GoTrue({
   setCookie: true,
 });
 
-function go_to_login(){
-  router.push('/login')
+function go_to_login() {
+  router.push("/login");
 }
 
 function save_to_local_json(items) {
