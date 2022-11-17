@@ -27,7 +27,7 @@
           id="imagePath"
           type="text"
           placeholder="Image Path"
-          />
+        />
       </div>
       <div class="mb-6">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="Caption">
@@ -43,8 +43,8 @@
       <div class="flex justify-center">
         <button
           style="background-color: #ffc700"
-          class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        
+          class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
           Add To Cat Feed
         </button>
       </div>
@@ -55,9 +55,7 @@
 <script>
 export default {
   name: "Form",
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
