@@ -5,9 +5,12 @@
     <!-- Content container -->
     <div class="p-6">
       <!-- Avatar / Username row -->
-      <div class="flex">
-        <div class="bg-black w-9 h-9 rounded-full"></div>
-        <span></span>
+      <div class="flex justify-between">
+        <div class="flex">
+          <div class="bg-black w-9 h-9 rounded-full mr-1.5"></div>
+          <span class="username-text">Username</span>
+        </div>
+        <div>yo</div>
       </div>
     </div>
   </div>
