@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <div class="background_color">
     <header></header>
-    <main class="flex justify-center">
+    <main class="container mx-auto">
       <RouterView />
     </main>
   </div>

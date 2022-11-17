@@ -96,6 +96,4 @@ function CheckForm(){
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
