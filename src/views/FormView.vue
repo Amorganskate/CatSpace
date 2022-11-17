@@ -66,7 +66,7 @@
 
 <script setup>
 import { ref } from "vue";
-import catFeed from "../dummy_data/cat_feed.json"
+import catFeed from "@/dummy_data/cat_feed.json"
 const username = ref('');
 const imagePath = ref('');
 const caption = ref('');
