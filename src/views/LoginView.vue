@@ -7,7 +7,8 @@
           class="login__input"
           id="username"
           type="text"
-          placeholder="username"
+          v-model="username"
+          placeholder="Email"
         />
       </div>
       <div class="login__form">
@@ -16,54 +17,47 @@
           class="login__input"
           id="password"
           type="password"
+          v-model="password"
           placeholder="password"
         />
       </div>
-      <button
-        @click="triggerNetlifyIdentityAction('login')"
-        class="login__button"
-      >
-        log in
-      </button>
+      <button @click="login" class="login__button">log in</button>
       <a class="login__forgot" href="#"> forgot password? </a>
-      <a class="login__sign-up" href="#"> sign up</a>
+      <a class="login__sign-up" @click="signUp()"> sign up</a>
     </div>
   </div>
 </template>
 
 <script setup>
-import netlifyIdentity from "netlify-identity-widget";
+import GoTrue from "gotrue-js";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-netlifyIdentity.init({
-  apiUrl: "https://netlify-identity-demo-vue.netlify.com/.netlify/identity",
-  logo: true,
+const username = ref("");
+const password = ref("");
+const router = useRouter();
+
+let auth = new GoTrue({
+  APIUrl: "https://gentle-beignet-96c25c.netlify.app/.netlify/identity",
+  audience: "",
+  setCookie: true,
 });
 
-function triggerNetlifyIdentityAction(action) {
-  if (action == "login" || action == "signup") {
-    netlifyIdentity.open(action);
-    netlifyIdentity.on(action, (user) => {
-      this.currentUser = {
-        username: user.user_metadata.full_name,
-        email: user.email,
-        access_token: user.token.access_token,
-        expires_at: user.token.expires_at,
-        refresh_token: user.token.refresh_token,
-        token_type: user.token.token_type,
-      };
-      this.updateUser({
-        currentUser: this.currentUser,
-      });
-      netlifyIdentity.close();
-    });
-  } else if (action == "logout") {
-    this.currentUser = null;
-    this.updateUser({
-      currentUser: this.currentUser,
-    });
-    netlifyIdentity.logout();
-    this.$router.push({ name: "Home" });
-  }
+function login() {
+  auth
+    .login(username.value, password.value, true)
+    .then(() => {
+      router.push("/");
+    })
+    .catch((error) => showMessage(`Failed :( ${JSON.stringify(error)}`));
+}
+
+function showMessage(text) {
+  alert(text);
+}
+
+function signUp() {
+  router.push("/signup");
 }
 </script>
 <style scoped>
