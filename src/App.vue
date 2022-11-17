@@ -6,15 +6,13 @@ import { computed } from "vue";
 let route = useRoute();
 
 var isLoginPage = computed(() => {
-  console.log(route.name == "Signup" && route.name == "Login")
+  console.log(route.name == "Signup" && route.name == "Login");
   return route.name == "Login";
 });
 
 var isSignup = computed(() => {
-  return route.name == "Signup"
-})
-
-
+  return route.name == "Signup";
+});
 </script>
 
 <template>

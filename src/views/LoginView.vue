@@ -30,7 +30,7 @@
 
 <script setup>
 import GoTrue from "gotrue-js";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
 const username = ref("");
@@ -59,6 +59,7 @@ function showMessage(text) {
 function signUp() {
   router.push("/signup");
 }
+
 </script>
 <style scoped>
 @import url("/login.css");

@@ -32,7 +32,7 @@
         />
       </div>
       <button @click="signup()" class="login__button">sign up</button>
-      <a class="login__forgot" href="#"> log in </a>
+      <a class="login__forgot" @click="go_to_login"> log in </a>
     </div>
   </div>
 </template>
@@ -53,13 +53,25 @@ let auth = new GoTrue({
   setCookie: true,
 });
 
+function go_to_login(){
+  router.push('/login')
+}
+
+function save_to_local_json(items) {
+  var items_json = JSON.stringify(items);
+
+  localStorage.setItem("gotrue.user", items_json);
+}
 function signup() {
   auth
     .signup(username.value, password.value)
-    .then(() => {
-      alert("A confirmation email has been sent to you.");
+    .then((response) => {
+      if (response) {
+        save_to_local_json(response);
+        router.push("/");
+      }
     })
-    .catch((error) => console.log(error, "Shit didn't work"));
+    .catch((error) => alert(error, "Shit didn't work"));
 }
 </script>
 <style scoped>
