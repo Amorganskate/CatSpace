@@ -87,6 +87,7 @@ async function AddToJsonFile() {
     userName: selected.value.username,
     caption: caption.value,
     imagePath: imagePath.value,
+    likes: 0,
   };
 
   json.push(new_record);
