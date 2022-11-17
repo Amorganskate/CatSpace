@@ -57,39 +57,46 @@
           class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           v-on:click="AddToJsonFile()"
         >
-          Add To Cat Feed
+            Add To Cat Feed
         </button>
       </div>
     </form>
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import catFeed from "@/dummy_data/cat_feed.json"
+<script setup >
+import { ref, onMounted } from "vue";
+import axios from "axios";
 const username = ref('');
 const imagePath = ref('');
 const caption = ref('');
-const username_list = catFeed.map((x) => ({
-  username: x.userName,
-  userId: x.userAccountID,
-  profileImage: x.profileImage,
-}));
-const selectedUser = ref('')
+let username_list = ref('')
+const selected = ref('')
 
 const usernames = ref(username_list);
 
-function AddToJsonFile() {
-  var json = catFeed;
+async function  AddToJsonFile() {
+  var json = username_list;
   let isValid = CheckForm();
+
+
 
   if (!isValid) {
     alert("Please Fill Out Fields");
     return;
   }
 
-  
+  console.log(json);
 }
+onMounted(async () => {
+  var catfeed = await axios.get("/dummy_data/cat_feed.json");
+
+  username_list.value = catfeed.data.map((x) => ({
+    username: x.userName,
+    userId: x.userAccountID,
+    profileImage: x.profileImage,
+  }));
+});
 
 function CheckForm(){
   return username.value != "" && imagePath.value != "" && caption.value != "";
