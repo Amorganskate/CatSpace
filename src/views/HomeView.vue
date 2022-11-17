@@ -1,5 +1,7 @@
 <template>
-  <main>cat space</main>
+  <main><CatFeed /></main>
 </template>
 
-<script setup></script>
+<script setup>
+import CatFeed from "../components/cat_feed.vue";
+</script>

@@ -11,10 +11,10 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path:"/forms",
-      name: 'Form',
+      path: "/forms",
+      name: "Form",
       component: FormView,
-    }
+    },
   ],
 });
 

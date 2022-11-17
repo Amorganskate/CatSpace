@@ -1,15 +1,9 @@
 <template>
-  <div>
-    
-  </div>
+  <div><CatPost /></div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+import CatPost from "./CatPost.vue";
 </script>
 
-<style>
-
-</style>
+<style></style>
