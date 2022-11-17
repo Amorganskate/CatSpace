@@ -57,7 +57,7 @@
           class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           v-on:click="AddToJsonFile()"
         >
-            Add To Cat Feed
+          Add To Cat Feed
         </button>
       </div>
     </form>
