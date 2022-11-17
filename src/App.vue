@@ -5,7 +5,6 @@ import { RouterView } from "vue-router";
 
 <template>
   <div>
-    
     <header></header>
     <main class="flex justify-center">
       <Nav></Nav>
