@@ -6,15 +6,14 @@
       <div class="flex justify-between content-center">
         <div class="flex">
           <div class="bg-black w-9 h-9 rounded-full mr-1.5"></div>
-          <span class="username-text">Username</span>
+          <span class="username-text">{{ username }}</span>
         </div>
         <img src="/icons/icon-more-horizontal.svg" />
       </div>
-      <div class="mt-[20px] border-[3px] rounded border-black">
-        <img
-          class="object-cover"
-          src="https://i.pinimg.com/originals/59/54/b4/5954b408c66525ad932faa693a647e3f.jpg"
-        />
+      <div class="flex justify-center">
+        <div class="mt-[20px] border-[3px] rounded border-black inline-block">
+          <img class="object-cover" :src="image" />
+        </div>
       </div>
       <div class="flex justify-between items-center mt-[30px]">
         <div class="flex">
@@ -29,17 +28,21 @@
       </div>
       <div class="mt-2">
         <span class="font-chubbo text-[21px] leading-[1.875rem] mr-1">
-          Username
+          {{ username }}
         </span>
-        Caption goes here... Caption goes here...Caption goes here...Caption
-        goes here...
+        {{ caption }}
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+defineProps({
+  username: String,
+  caption: String,
+  avatar: String,
+  image: String,
+});
 </script>
 
 <style></style>
