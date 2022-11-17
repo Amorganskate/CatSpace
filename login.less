@@ -1,0 +1,98 @@
+.login{
+    .font(@fontcolor, @fontsize, @fontweight, @lineheight, @spacing, @family){
+        color: @fontcolor;
+        font-size: @fontsize;
+        font-weight: @fontweight;
+        line-height: @lineheight;
+        letter-spacing: @spacing;
+        font-family: @family;
+    }
+    
+    .flex(@justify, @align, @direction){
+        display: flex;
+        justify-content: @justify;
+        align-items: @align;
+        flex-direction: @direction;
+    }
+    &__forms {
+        max-width: 768px;
+        padding: 178.5px 16px 0 16px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__label {
+        padding: 0 12px;
+        margin-bottom: 8px;
+        font-family: "Supreme";
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 27px;
+    }
+    &__input {
+        width: 100%;
+        height: 67px;
+        padding: 16px 24px;
+        font-family: "Chubbo";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 35px;
+        border: 3px solid #000000;
+        border-radius: 12px;
+        margin-bottom: 16px;
+
+        &::-webkit-input-placeholder { color: #000; }
+        &::-moz-placeholder { color: #000; }
+        &:-ms-input-placeholder { color: #000; }
+        &:-moz-placeholder { color: #000; }
+        &::placeholder{
+            color: black;
+        }
+    }
+    &__button {
+        width: 100%;
+        height: 67px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffc700;
+        border: 3px solid #000000;
+        border-radius: 12px;
+        font-family: "Chubbo";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 35px;
+        margin-bottom: 16px;
+        transition: 0.25s;
+        &:hover, &:focus{
+            background-color: rgb(198 241 253);
+        }
+      }
+   
+    &__forgot, &__sign-up {
+        widows: 100%;
+        height: 51px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Chubbo";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 35px;
+        transition: 0.25s;
+        &:hover, &:focus{
+            font-size: 26px;
+        }
+    }
+
+}
+
+  
+  
