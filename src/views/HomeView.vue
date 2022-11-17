@@ -1,9 +1,7 @@
 <template>
-  <main class="username-text">
-    <div class="bg-yellow">cat space</div>
-    <div class="bg-light-blue">cat space</div>
-    <div class="bg-purple">cat space</div>
-  </main>
+  <main class="bg-white"><CatFeed /></main>
 </template>
 
-<script setup></script>
+<script setup>
+import CatFeed from "../components/cat_feed.vue";
+</script>
