@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* Can use apply to make our own reusable typography classes here if we need to */
+  /* https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply  */
+  /* example for username text on cards/profile: */
+  .username-text {
+    @apply font-chubbo text-2xl leading-9;
+  }
+}
