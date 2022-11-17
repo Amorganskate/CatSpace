@@ -52,10 +52,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Form",
-}
+<script setup>
+
 </script>
 
 <style>
