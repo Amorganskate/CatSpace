@@ -1,7 +1,9 @@
 <template>
-  <div></div>
+  <div><CatPost /></div>
 </template>
 
-<script setup></script>
+<script setup>
+import CatPost from "./CatPost.vue";
+</script>
 
 <style></style>

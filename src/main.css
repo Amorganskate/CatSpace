@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply font-supreme;
+  }
+}
+
 @layer utilities {
   /* Can use apply to make our own reusable typography classes here if we need to */
   /* https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply  */
