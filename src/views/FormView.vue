@@ -67,7 +67,6 @@
 
 <script setup >
 import { ref, onMounted } from "vue";
-import axios from "axios"
 const username = ref('');
 const imagePath = ref('');
 const caption = ref('');
@@ -75,6 +74,36 @@ let username_list = ref('')
 const selected = ref('')
 
 const usernames = ref(username_list);
+
+let catfeed = JSON.parse(`[
+  {
+    "userAccountID": 1,
+    "userName": "KittyLove4Ever",
+    "userProfileImagePath": "",
+    "imageId": 1,
+    "imagePath": "https://i.pinimg.com/originals/59/54/b4/5954b408c66525ad932faa693a647e3f.jpg",
+    "caption": "This is my cat Franklin the turtle",
+    "Likes": 0
+  },
+  {
+    "userAccountID": 2,
+    "userName": "KittysRMyPassion",
+    "userProfileImagePath": "",
+    "imageId": 2,
+    "imagePath": "https://a.pinatafarm.com/1092x612/d47afa3656/coughing-cat-dcbc3e50b235f7aa3793bfa07959fb7a-meme.jpeg/m/522x0",
+    "caption": "This is my cat coughing isn't he awesome",
+    "Likes": 0
+  },
+  {
+    "userAccountID": 3,
+    "userName": "OverlyObsessedWithCats",
+    "userProfileImagePath": "",
+    "imageId": 3,
+    "imagePath": "https://i.pinimg.com/564x/5c/a1/42/5ca142d34fd1903773b4f4e6f43d9045.jpg",
+    "caption": "This is my cat in a standing pose",
+    "Likes": 0
+  }
+]`);
 
 async function  AddToJsonFile() {
   var json = username_list;
@@ -90,8 +119,7 @@ async function  AddToJsonFile() {
   console.log(json);
 }
 onMounted(async () => {
-  var catfeed = await axios.get('/dummy_data/data.json')
-  username_list.value = catfeed.data.map((x) => ({
+  username_list.value = catfeed.map((x) => ({
     username: x.userName,
     userId: x.userAccountID,
     profileImage: x.profileImage,
