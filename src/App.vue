@@ -3,10 +3,16 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <header></header>
-  <main class="container mx-auto">
-    <RouterView />
-  </main>
+  <div class="background_color">
+    <header></header>
+    <main class="container mx-auto">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.background_color {
+  background-color: #c6f1ff;
+}
+</style>
