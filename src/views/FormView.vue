@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-xs">
+  <div class="flex justify-center">
     <form id="app" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h1 class="flex justify-center font-bold mb-4">Create A Post Feed</h1>
 
@@ -17,8 +17,8 @@
         >
           <option
             :key="option.userId"
-            v-for="option in usernames"
-            :value="option.userId"
+            v-for="option in username_list"
+            :value="option"
           >
             {{ option.username }}
           </option>
@@ -54,8 +54,7 @@
       <div class="flex justify-center">
         <button
           type="button"
-          style="background-color: #ffc700"
-          class="text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-yellow text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           v-on:click="AddToJsonFile()"
         >
           Add To Cat Feed
@@ -66,33 +65,64 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import catFeed from "@/dummy_data/cat_feed.json";
-const username = ref("");
+import { ref, onMounted } from "vue";
+import catfeed from "../dummy_data/cat_feed.json";
 const imagePath = ref("");
 const caption = ref("");
-const username_list = catFeed.map((x) => ({
-  username: x.userName,
-  userId: x.userAccountID,
-  profileImage: x.profileImage,
-}));
-const selectedUser = ref("");
+let username_list = ref("");
+const selected = ref("");
 
-const usernames = ref(username_list);
-
-function AddToJsonFile() {
-  var json = catFeed;
+async function AddToJsonFile() {
+  var json = read_from_local_json();
   let isValid = CheckForm();
 
   if (!isValid) {
     alert("Please Fill Out Fields");
     return;
   }
+
+  var new_record = {
+    userAccountID: selected.value.userId,
+    profileImage: selected.value.profileImage,
+    userName: selected.value.username,
+    caption: caption.value,
+    imagePath: imagePath.value,
+    likes: 0,
+  };
+
+  json.push(new_record);
+
+  save_to_local_json(json);
 }
+
+function save_to_local_json(items) {
+  var items_json = JSON.stringify(items);
+
+  localStorage.setItem("cat_feed", items_json);
+}
+
+function read_from_local_json() {
+  var items_json = localStorage.getItem("cat_feed");
+  var items = JSON.parse(items_json);
+
+  if (!items) {
+    items = [];
+  }
+
+  return items;
+}
+onMounted(async () => {
+  save_to_local_json(catfeed);
+
+  var items = read_from_local_json();
+  username_list.value = items.map((x) => ({
+    username: x.userName,
+    userId: x.userAccountID,
+    profileImage: x.profileImage,
+  }));
+});
 
 function CheckForm() {
-  return username.value != "" && imagePath.value != "" && caption.value != "";
+  return selected.value != "" && imagePath.value != "" && caption.value != "";
 }
 </script>
-
-<style></style>
