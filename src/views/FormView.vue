@@ -18,7 +18,8 @@
           <option
             :key="option.userId"
             v-for="option in usernames"
-            :value="option.userId">
+            :value="option.userId"
+          >
             {{ option.username }}
           </option>
         </select>
@@ -66,16 +67,16 @@
 
 <script setup>
 import { ref } from "vue";
-import catFeed from "@/dummy_data/cat_feed.json"
-const username = ref('');
-const imagePath = ref('');
-const caption = ref('');
+import catFeed from "@/dummy_data/cat_feed.json";
+const username = ref("");
+const imagePath = ref("");
+const caption = ref("");
 const username_list = catFeed.map((x) => ({
   username: x.userName,
   userId: x.userAccountID,
   profileImage: x.profileImage,
 }));
-const selectedUser = ref('')
+const selectedUser = ref("");
 
 const usernames = ref(username_list);
 
@@ -87,11 +88,9 @@ function AddToJsonFile() {
     alert("Please Fill Out Fields");
     return;
   }
-
-  
 }
 
-function CheckForm(){
+function CheckForm() {
   return username.value != "" && imagePath.value != "" && caption.value != "";
 }
 </script>
