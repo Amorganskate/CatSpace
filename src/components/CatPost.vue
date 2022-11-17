@@ -1,16 +1,14 @@
 <template>
   <div
-    class="w-[375px] min-h-[300px] border-4 border-black rounded-2xl shadow-[0.5rem_0.5rem_red] shadow-black"
+    class="max-w-screen-md border-4 border-black rounded-2xl shadow-[0.5rem_0.5rem_red] shadow-black"
   >
-    <!-- Content container -->
     <div class="p-6">
-      <!-- Avatar / Username row -->
-      <div class="flex justify-between">
+      <div class="flex justify-between content-center">
         <div class="flex">
           <div class="bg-black w-9 h-9 rounded-full mr-1.5"></div>
           <span class="username-text">Username</span>
         </div>
-        <div><img src="/icons/icon-more-horizontal.svg" /></div>
+        <img src="/icons/icon-more-horizontal.svg" />
       </div>
       <div class="mt-[20px] border-[3px] rounded border-black">
         <img
@@ -26,8 +24,15 @@
         </div>
         <img class="w-[30px]" src="/icons/icon-bookmark.svg" />
       </div>
-      <div class="font-supreme">
+      <div class="mt-3.5 font-supreme">
         <span>Liked by <b>ryan._.royal</b> and <b>others</b></span>
+      </div>
+      <div class="mt-2">
+        <span class="font-chubbo text-[21px] leading-[1.875rem] mr-1">
+          Username
+        </span>
+        Caption goes here... Caption goes here...Caption goes here...Caption
+        goes here...
       </div>
     </div>
   </div>
