@@ -1,7 +1,9 @@
 <template>
-  <main class="bg-white"><CatFeed /></main>
+  <main class="bg-white">
+    <CatFeed />
+  </main>
 </template>
 
 <script setup>
-import CatFeed from "../components/cat_feed.vue";
+import CatFeed from "@/components/CatFeed.vue";
 </script>

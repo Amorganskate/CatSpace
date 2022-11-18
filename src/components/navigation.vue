@@ -21,7 +21,7 @@
     </button>
   </div>
   <div class="bot-nav">
-    <button class="bot-nav__button">
+    <button @click="go_to_home()" class="bot-nav__button">
       <svg
         width="24"
         height="24"
@@ -73,7 +73,7 @@
         />
       </svg>
     </button>
-    <button class="bot-nav__button">
+    <button @click="go_to_profile()" class="bot-nav__button">
       <svg
         width="24"
         height="24"
@@ -93,7 +93,16 @@
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
 defineEmits("navClicked");
+let router = useRouter();
+function go_to_home() {
+  router.push("/");
+}
+
+function go_to_profile() {
+  router.push("/profile");
+}
 </script>
 
 <style scoped>
