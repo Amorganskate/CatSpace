@@ -42,16 +42,18 @@ onMounted(() => {
           @click="() => (navDrawerOpen = false)"
         ></div>
         <RouterView :class="{ 'mt-[92px] mb-[120px]': !isLoginPage }" />
-        <NavDrawer
-          @navItemClicked="() => (navDrawerOpen = false)"
-          v-if="navDrawerOpen"
-        />
+        <Transition name="slide">
+          <NavDrawer
+            v-if="navDrawerOpen"
+            @navItemClicked="() => (navDrawerOpen = false)"
+          />
+        </Transition>
       </div>
     </main>
   </div>
 </template>
 
-<style>
+<style scoped>
 .overlay {
   position: fixed;
   width: 100%;
@@ -62,5 +64,23 @@ onMounted(() => {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 400;
+}
+
+.slide-enter-active {
+  animation: slide-in 0.5s;
+}
+
+.slide-leave-active {
+  animation: slide-in 0.3s reverse;
+}
+
+@keyframes slide-in {
+  0% {
+    bottom: -500px;
+  }
+
+  100% {
+    bottom: 0;
+  }
 }
 </style>
