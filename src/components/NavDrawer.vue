@@ -31,7 +31,7 @@ defineEmits("navItemClicked");
 
 <style scoped>
 .nav-drawer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   z-index: 500;
