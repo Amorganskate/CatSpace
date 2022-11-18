@@ -54,12 +54,13 @@ const router = createRouter({
       name: "Logout",
     },
     {
-      path: "/visitor",
+      path: "/:username",
       name: "Visitor",
       component: VisitorView,
       meta: {
         requiresAuth: false,
       },
+      props: true,
     },
   ],
 });
