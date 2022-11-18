@@ -98,8 +98,8 @@ function go_to_home() {
   router.push("/");
 }
 
-function go_to_profile(){
-  router.push("/profile")
+function go_to_profile() {
+  router.push("/profile");
 }
 </script>
 
