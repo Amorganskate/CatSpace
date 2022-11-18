@@ -1,6 +1,6 @@
 <template>
   <div class="top-nav">
-    <div class="top-nav__title">Catspace</div>
+    <div class="top-nav__title" @click="go_to_home()">Catspace</div>
     <button class="top-nav__button">
       <img
         class="nav-icon"
