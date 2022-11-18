@@ -72,7 +72,7 @@
         />
       </svg>
     </button>
-    <button class="bot-nav__button">
+    <button @click="go_to_profile()" class="bot-nav__button">
       <svg
         width="24"
         height="24"
@@ -96,6 +96,10 @@ import { useRouter } from "vue-router";
 let router = useRouter();
 function go_to_home() {
   router.push("/");
+}
+
+function go_to_profile(){
+  router.push("/profile")
 }
 </script>
 
