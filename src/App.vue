@@ -4,6 +4,7 @@ import NavDrawer from "./components/NavDrawer.vue";
 import { computed, ref, onMounted } from "vue";
 import { RouterView, useRoute } from "vue-router";
 import cat_feed from "@/dummy_data/cat_feed.json";
+import Loading from "./components/Loading.vue";
 
 let route = useRoute();
 
@@ -25,11 +26,17 @@ function save_to_local_json(items) {
 
 onMounted(() => {
   save_to_local_json(cat_feed);
+  setTimeout(() => isLoading.value = false, 4000);
 });
+
+const isLoading = ref(true);
+
+
 </script>
 
 <template>
   <div>
+    <Loading v-if="isLoading"></Loading>
     <main class="flex justify-center">
       <Nav
         @navClicked="() => (navDrawerOpen = true)"

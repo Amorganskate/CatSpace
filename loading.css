@@ -1,0 +1,110 @@
+.loading {
+  z-index: 999999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #FFC700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  animation: bg 4s 1;
+}
+.loading__inner {
+  position: relative;
+  width: fit-content;
+}
+img {
+  animation: dots 4s 1;
+  height: auto;
+}
+.loading__text {
+  font-family: 'Chubbo';
+  color: #FFC700;
+  position: absolute;
+  right: 24px;
+  top: 0px;
+  font-size: 4rem;
+  font-weight: 700;
+  animation: text 4s 1;
+}
+.loading__caption {
+  font-family: 'Chubbo';
+  color: #FFC700;
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  font-size: 2rem;
+  font-weight: 700;
+  animation: meow 4s 1;
+}
+@keyframes dots {
+  0% {
+    width: 0%;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    width: 100%;
+    transform: rotate(360deg);
+  }
+  50%,
+  75% {
+    width: 100%;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+}
+@keyframes text {
+  0%,
+  25% {
+    opacity: 0;
+    font-size: 0;
+  }
+  45%,
+  75% {
+    opacity: 1;
+    font-size: 5rem;
+  }
+  80% {
+    opacity: 0;
+    font-size: 0;
+  }
+  100% {
+    opacity: 0;
+    font-size: 0;
+  }
+}
+@keyframes bg {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes meow {
+  0%,
+  25% {
+    opacity: 0;
+  }
+  70%,
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
