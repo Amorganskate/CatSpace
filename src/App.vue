@@ -1,5 +1,5 @@
 <script setup>
-import Nav from "./components/Navigation.vue";
+import Nav from "./components/navigation.vue";
 import NavDrawer from "./components/NavDrawer.vue";
 import { computed, ref, onMounted } from "vue";
 import { RouterView, useRoute } from "vue-router";
