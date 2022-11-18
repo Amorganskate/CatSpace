@@ -4,6 +4,7 @@ import FormView from "../views/FormView.vue";
 import LoginView from "../views/LoginView.vue";
 import ProfileView from "../views/ProfileView.vue";
 import AuthView from "../views/SignupView.vue";
+import VisitorView from "../views/VisitorView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,14 @@ const router = createRouter({
     {
       path: "/logout",
       name: "Logout",
+    },
+    {
+      path: "/visitor",
+      name: "Visitor",
+      component: VisitorView,
+      meta: {
+        requiresAuth: false,
+      },
     },
   ],
 });
