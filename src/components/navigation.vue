@@ -1,8 +1,9 @@
 <template>
   <div class="top-nav">
-    <div class="top-nav__title">Catspace</div>
+    <div class="top-nav__title" @click="go_to_home()">Catspace</div>
     <button class="top-nav__button">
       <img
+        @click="$emit('navClicked')"
         class="nav-icon"
         src="\icons\icon-plus-circle.svg"
         alt="Add New Post"
@@ -93,6 +94,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+defineEmits("navClicked");
 let router = useRouter();
 function go_to_home() {
   router.push("/");
