@@ -3,6 +3,7 @@
     <div class="top-nav__title">Catspace</div>
     <button class="top-nav__button">
       <img
+        @click="$emit('navClicked')"
         class="nav-icon"
         src="\icons\icon-plus-circle.svg"
         alt="Add New Post"
@@ -91,8 +92,8 @@
   <div class="bot-gradient"></div>
 </template>
 
-<script>
-export default {};
+<script setup>
+defineEmits("navClicked");
 </script>
 
 <style scoped>

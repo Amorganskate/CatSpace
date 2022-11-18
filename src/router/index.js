@@ -48,14 +48,14 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  var isAuth = localStorage.getItem("gotrue.user") != null;
+// router.beforeEach((to, from, next) => {
+//   var isAuth = localStorage.getItem("gotrue.user") != null;
 
-  if (to.matched.some((route) => route.meta.requiresAuth) && !isAuth) {
-    next("/login");
-  } else {
-    next();
-  }
-});
+//   if (to.matched.some((route) => route.meta.requiresAuth) && !isAuth) {
+//     next("/login");
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;
