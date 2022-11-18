@@ -40,7 +40,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import auth from "../auth/auth";
+import auth from "@/auth/auth";
 
 const username = ref("");
 const password = ref("");

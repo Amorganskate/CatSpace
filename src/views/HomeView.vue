@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import CatFeed from "../components/cat_feed.vue";
+import CatFeed from "@/components/CatFeed.vue";
 </script>

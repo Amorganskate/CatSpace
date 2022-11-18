@@ -1,8 +1,8 @@
 <script setup>
-import Nav from "./components/navigation.vue";
+import Nav from "@/components/Navigation.vue";
 import { RouterView, useRoute } from "vue-router";
 import { computed, onMounted } from "vue";
-import cat_feed from "./dummy_data/cat_feed.json";
+import cat_feed from "@/dummy_data/cat_feed.json";
 
 let route = useRoute();
 
