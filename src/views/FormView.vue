@@ -66,7 +66,10 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import catfeed from "../dummy_data/cat_feed.json";
+
+const router = useRouter();
 const imagePath = ref("");
 const caption = ref("");
 let username_list = ref("");
@@ -83,7 +86,7 @@ async function AddToJsonFile() {
 
   var new_record = {
     userAccountID: selected.value.userId,
-    profileImage: selected.value.profileImage,
+    userProfileImagePath: selected.value.profileImage,
     userName: selected.value.username,
     caption: caption.value,
     imagePath: imagePath.value,
@@ -93,6 +96,8 @@ async function AddToJsonFile() {
   json.push(new_record);
 
   save_to_local_json(json);
+
+  router.push("/")
 }
 
 function save_to_local_json(items) {
@@ -118,7 +123,7 @@ onMounted(async () => {
   username_list.value = items.map((x) => ({
     username: x.userName,
     userId: x.userAccountID,
-    profileImage: x.profileImage,
+    profileImage: x.userProfileImagePath,
   }));
 });
 
