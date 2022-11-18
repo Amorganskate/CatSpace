@@ -21,7 +21,6 @@ const items = ref([]);
 
 onMounted(() => {
   items.value = read_from_local_json();
-  console.log(items);
 });
 </script>
 

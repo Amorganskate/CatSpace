@@ -2,7 +2,7 @@
 import Nav from "./components/navigation.vue";
 import { RouterView, useRoute } from "vue-router";
 import { computed, onMounted } from "vue";
-import cat_feed from './dummy_data/cat_feed.json'
+import cat_feed from "./dummy_data/cat_feed.json";
 
 let route = useRoute();
 
@@ -23,7 +23,7 @@ function save_to_local_json(items) {
 
 onMounted(() => {
   save_to_local_json(cat_feed);
-})
+});
 </script>
 
 <template>
