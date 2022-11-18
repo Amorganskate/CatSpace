@@ -1,6 +1,6 @@
 <template>
   <div class="nav-drawer bg-light-blue rounded-t-2xl">
-    <div class="mx-6">
+    <div class="mx-6 md:mx-auto max-w-screen-md">
       <h1 class="font-chubbo text-2xl leading-[2.5rem] text-center">Create</h1>
 
       <NavDrawerItem text="Reel" icon="icon-play" />
@@ -13,7 +13,7 @@
 
       <NavDrawerItem text="Story Highlight" icon="icon-heart" />
 
-      <NavDrawerItem text="Live" icon="icon-audio" />
+      <NavDrawerItem class="mb-6" text="Live" icon="icon-audio" />
     </div>
   </div>
 </template>
