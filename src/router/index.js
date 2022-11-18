@@ -4,6 +4,7 @@ import FormView from "../views/FormView.vue";
 import LoginView from "../views/LoginView.vue";
 import ProfileView from "../views/ProfileView.vue";
 import AuthView from "../views/SignupView.vue";
+import VisitorView from "../views/VisitorView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,17 +49,34 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
+    {
+      path: "/logout",
+      name: "Logout",
+    },
+    {
+      path: "/visitor",
+      name: "Visitor",
+      component: VisitorView,
+      meta: {
+        requiresAuth: false,
+      },
+    },
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   var isAuth = localStorage.getItem("gotrue.user") != null;
+router.beforeEach((to, from, next) => {
+  var isAuth = localStorage.getItem("gotrue.user") != null;
 
-//   if (to.matched.some((route) => route.meta.requiresAuth) && !isAuth) {
-//     next("/login");
-//   } else {
-//     next();
-//   }
-// });
+  if (to.matched.some((route) => route.name == "Logout")) {
+    localStorage.removeItem("gotrue.user");
+    next("/login");
+  }
+
+  if (to.matched.some((route) => route.meta.requiresAuth) && !isAuth) {
+    next("/login");
+  } else {
+    next();
+  }
+});
 
 export default router;
