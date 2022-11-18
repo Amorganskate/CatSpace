@@ -1,7 +1,9 @@
 <template>
   <div class="nav-drawer bg-light-blue rounded-t-2xl">
     <div class="mx-6 md:mx-auto max-w-screen-md">
-      <h1 class="font-chubbo text-2xl leading-[2.5rem] text-center">Create</h1>
+      <h1 class="font-chubbo text-2xl leading-[2.5rem] text-center mt-4">
+        Create
+      </h1>
 
       <NavDrawerItem text="Reel" icon="icon-play" />
 
